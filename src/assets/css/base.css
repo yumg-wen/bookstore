@@ -1,0 +1,82 @@
+@import './normalize.css';
+
+
+:root{
+	--color-text:#666;
+	--color-high-text:#42bBaa;
+	--color-tint:#42b983;
+	--color-background:#ffffff;
+	--font-size:14px;
+	--line-hight:1.5;
+}
+/* 所有內外邊距都清零 */
+*,
+*::before,*::after{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* 斜體的文字不傾斜 */
+em,i{
+	font-style: normal;
+}
+
+/* 去掉li小圓點 */
+li{
+	list-style: none;
+}
+img{
+	/* border:0 為了低版本瀏覽器，如果圖片加鏈結會有邊框問題 */
+	border: 0;
+	/* 取消圖片底側有空白縫隙的問題 */
+	vertical-align: middle;
+}
+button{
+	cursor: pointer;
+}
+ a{
+	 color: var(--color-text);
+	text-decoration: none;
+}
+a:hover{
+	color: #c81623;
+}
+ button,input{
+	 font-family: Microsoft YaHei, Heiti SC,sans-serif,monospace;
+	 /* 手動去除默認邊框 */
+	 border: 0;
+	 outline: none;
+ }
+ body{
+	 user-select: none;/*禁止用戶選擇文件或圖片 */
+	 background-color: var(--color-background);
+	 color: var(--color-text);
+	 width: 100vw;
+ }
+ .hide,.none{
+	 display: none;
+ }
+
+ /* 清除浮動 */
+ .clearfix::after{
+	content: "";
+	display: block; 
+	visibility: hidden;
+	clear: both;
+	height: 0;
+	 
+ }
+ .clearfix{
+	 *zoom: 1;
+ }
+ .left{
+	 float: left;
+ }
+ .right{
+	 float: right;
+ }
+ img{
+	max-width: 100%;
+	height: auto;
+}
