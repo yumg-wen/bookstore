@@ -1,4 +1,9 @@
+import { Notify } from 'vant'
+import { nextTick } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import store from '../store'
+
+
 
 const Home = () => import('views/home/home')
 const category = () => import('views/category/Category')
@@ -7,6 +12,11 @@ const Profile = () => import('views/profile/profile')
 const ShopCar = () => import('views/shopcar/shopCar')
 const Register =()=> import('views/profile/register')
 const Login =()=> import('views/profile/login')
+const Address =()=> import('views/profile/address')
+const addressEdit =()=> import('views/profile/addressEdit')
+const createOrder =()=>import('views/order/createOrder')
+
+
 
 const routes = [
   {
@@ -46,7 +56,8 @@ const routes = [
     name: 'Profile',
     component: Profile,
     meta:{
-      title:'圖書商城-個人中心'
+      title:'圖書商城-個人中心',
+      isAuthRequired:true
     }
   },
   {
@@ -54,7 +65,8 @@ const routes = [
     name: 'ShopCar',
     component: ShopCar,
     meta:{
-      title:'圖書商城-購物車'
+      title:'圖書商城-購物車',
+      isAuthRequired:true
     }
   }, 
   {
@@ -70,7 +82,35 @@ const routes = [
     name: 'Login',
     component: Login,
     meta:{
-      title:'圖書商城-登入中心'
+      title:'圖書商城-登入中心',
+      isAuthRequired:true
+    }
+  },
+  {
+    path: '/address',
+    name: 'Address',
+    component: Address,
+    meta:{
+      title:'地址管理',
+      isAuthRequired:true
+    }
+  },
+  {
+    path: '/addressEdit',
+    name: 'addressEdit',
+    component: addressEdit,
+    meta:{
+      title:'編輯地址',
+      isAuthRequired:true
+    }
+  },
+  {
+    path: '/createOrder',
+    name: 'createOrder',
+    component: createOrder,
+    meta:{
+      title:'訂單預覽',
+      isAuthRequired:true
     }
   },
   
@@ -82,7 +122,16 @@ const router = createRouter({
 })
 router.beforeEach((to,from,next)=>{
   //如果沒有登錄，到Login
-  next()
+  if(to.meta.isAuthRequired && store.state.user.isLogin===false ){
+    Notify("尚未登入，請先登入")
+    if(to.path=='/login'){
+      next()
+    }else{
+    next('/login')}
+    //若直接寫next('/login)會造成死循環，所以必須使用if/else避免死循環
+  } 
+  else{next()}
+
   document.title=to.meta.title
 })
 export default router

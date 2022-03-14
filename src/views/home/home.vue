@@ -2,7 +2,7 @@
 <div id="home">
   <!-- 頂部固定區 文字變動插槽內容 -->
     <nav-bar>
-      <template v-slot:default>圖書兄弟</template>
+      <template v-slot:default>圖書商城</template>
     </nav-bar>
   <!-- 到一定高度選項卡固定不動 -->
     <tab-control

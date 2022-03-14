@@ -69,3 +69,8 @@ Sidebar,SidebarItem,Collapse,CollapseItem,Tab,Tabs,Card
 (Card),(Tab,Tabs),Tag,Button 
 
 //註冊  https://www.showdoc.com.cn/1207745568269674/6090123481636428
+
+//購物車 Checkbox, CheckboxGroup,SwipeCell,SubmitBar,Stepper
+//個人中心 icon
+//地址 AddressEdit,AddressList
+//提交訂單 (submitBar), Popup,Grid, GridItem

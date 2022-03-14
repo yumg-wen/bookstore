@@ -25,3 +25,20 @@ export function login(data){
  }
  // 狀態碼 200 登入成功
  // 狀態碼 422 參數錯誤
+
+ //退出
+ export function logout(data){
+  return request({
+      url:'/api/auth/logout',
+      method:'post',
+      
+   })
+ }
+ //用戶個人訊息  https://www.showdoc.com.cn/1207745568269674/6090133286102831
+ export function getUser(data){
+  return request({
+      url:'/api/user',
+      
+      
+   })
+ }

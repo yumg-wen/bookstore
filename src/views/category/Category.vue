@@ -207,7 +207,7 @@ export default {
   }
 
   .goodList{
-    font: 1px;
+    font: .0625rem;
     position: absolute;
     top:6.875rem;
     right: 0;
@@ -219,5 +219,17 @@ export default {
    }
    
   } 
+}
+@media (mix-width:750px) {
+  .main-box .order-tab {
+    width: 60rem;
+    position: fixed;
+    left: 12.5rem !important;
+    font-size: 1.25rem;
+  }
+  .goodList .content{
+    width: 50rem;
+  }
+  
 }
 </style>

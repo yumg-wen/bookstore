@@ -29,7 +29,7 @@
   
        <router-link class="table-bar-item" to="/shopcar">
          <div class="icon">
-           <van-badge :content="2" max="9">
+           <van-badge :content="$store.state.user.carCount" max="9">
               <i class="fa-solid fa-cart-shopping"></i>
           </van-badge>
          </div>
@@ -45,23 +45,20 @@
       </div>
      
    
- 
-   
-  
-   
-
-
-
-
-  
-  
 </template>
 
 <script>
-
+import {onMounted} from 'vue'
+import {useStore} from 'vuex'
 export default {
    name:'app',
    setup(){
+     const store=useStore()
+     onMounted(()=>{
+       //讓購物車數量狀態一直維持
+      store.dispatch('updateCar')
+     })
+     
      
     return {
     
@@ -108,7 +105,21 @@ export default {
     margin: .2rem;
     
   }
-  
+  @media (mix-width:750px) {
+    html{
+      font-size: 20px;
+    }
+    
+    .main-box .order-tab {
+    width: 60rem;
+    position: fixed;
+    left: 13rem ;
+    font-size: 1.25rem;
+  }
+  .goodList .content{
+    width: 50rem;
+  }
+  }
 
 
 </style>

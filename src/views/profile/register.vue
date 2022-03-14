@@ -9,7 +9,7 @@
   </div>
   <!-- 註冊資訊 -->
   <van-form @submit="onSubmit">
-  <van-cell-group inset>
+ 
     <van-field
       v-model="name"
       name="使用者姓名"
@@ -40,11 +40,12 @@
       placeholder="請輸入正確電子信箱格式 @"
       :rules="[{ required: true, message: '請輸入電子信箱' }]"
     />
-  </van-cell-group>
+ 
    
-  <div style="margin: 16px;">
+  <div style="margin:16px;">
     <div class="link-login" 
-    style="color:var(--color-tint); margin: 10px;text-align:center;" @click="$router.push({path:'/login'})">
+    style="color:var(--color-tint); margin: 10px;text-align:center;font-weight:700" 
+    @click="$router.push({path:'/login'})">
       已有帳號 立即登入
     </div>
    
@@ -68,8 +69,8 @@ export default {
   name:'Register',
   components:{navBar},
   setup(){
-    const router =useRouter() 
-
+    
+    const router=useRouter()
     const userInfo =reactive({
       name:"",
       password:"",
@@ -78,21 +79,20 @@ export default {
     })
 
     const onSubmit=()=>{
-     //先驗證
+      //先驗證
      if(userInfo.password != userInfo.password_confirmation){
       //  Notify('通知内容')
-       Notify({ type: 'danger', message: '密碼不一致,請再次確認密碼' })
+       Notify('密碼不一致,請再次確認密碼')
        //再提交服務器
 
      }
      else{
        register(userInfo).then(res=>{
-        //  console.log(res);
+         console.log(res.status)
          if(res.status=='201'){
-           
             Toast.success('註冊完成')
             setTimeout(()=>{
-              router.push({path:"/login"})
+              router.push({path:'/login'})
             },1000)
          }
          //註冊成功後，清空資訊
@@ -110,9 +110,6 @@ export default {
 </script>
 
 <style  scoped>
- link-login {
-   color: red;
-   margin-bottom: 10px;
- }
+ 
 
 </style>

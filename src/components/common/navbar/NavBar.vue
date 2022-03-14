@@ -38,9 +38,10 @@ export default {
   background:var(--color-tint);
   color: #ffffff;
   font-size:1rem;
-  height: 1.275rem;
-  line-height:1.275rem;
-  box-shadow:0 5px 0 rgba(100, 100, 100, .1);
+  height: 2.5rem;
+  line-height:2.5rem;
+  box-shadow:0 5px
+   0 rgba(100, 100, 100, .1);
   text-align: center;
 }
 .left,.right{
