@@ -15,7 +15,7 @@
       v-model="email"
       name="電子信箱"
       label="電子信箱"
-      placeholder="電子信箱 默認:aaaa@com"
+      placeholder="電子信箱 默認:test@a.com"
       :rules="[{ required: true, message: '請輸入電子信箱' }]"
     />
     <van-field
